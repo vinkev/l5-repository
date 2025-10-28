@@ -41,7 +41,7 @@ class CleanCacheRepository
      */
     public function __construct()
     {
-        $this->cache = app(config('repository.cache.repository', 'cache'));
+        $this->cache = app()->has('cache.plain') ? app('cache.plain') : app(config('repository.cache.repository', 'cache'));
     }
 
     /**
